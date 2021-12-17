@@ -85,6 +85,7 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
   let signin = (newUser: string, callback: VoidFunction) => {
     return fakeAuthProvider.signin(() => {
       setUser(newUser);
+      localStorage.setItem('user', newUser);
       callback();
     });
   };
@@ -92,6 +93,7 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
   let signout = (callback: VoidFunction) => {
     return fakeAuthProvider.signout(() => {
       setUser(null);
+      localStorage.removeItem("user");
       callback();
     });
   };
@@ -108,14 +110,15 @@ function useAuth() {
 function AuthStatus() {
   let auth = useAuth();
   let navigate = useNavigate();
-
-  if (!auth.user) {
+  console.log("Local Auth: ", localStorage.getItem('user'));
+  if (!auth.user && localStorage.getItem("user") === null) {
     return <p>You are not logged in.</p>;
   }
 
   return (
     <p>
-      Welcome {auth.user}!{" "}
+      {/* Welcome {auth.user}!{" "} */}
+      Welcome { localStorage.getItem('user')}!{" "}
       <button
         onClick={() => {
           auth.signout(() => navigate("/"));
@@ -131,7 +134,9 @@ function RequireAuth({ children }: { children: JSX.Element }) {
   let auth = useAuth();
   let location = useLocation();
 
-  if (!auth.user) {
+  console.log("Auth: ", auth);
+
+  if (!auth.user && localStorage.getItem("user") === null) {
     // Redirect them to the /login page, but save the current location they were
     // trying to go to when they were redirected. This allows us to send them
     // along to that page after they login, which is a nicer user experience
