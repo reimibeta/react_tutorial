@@ -10,6 +10,16 @@ import {
 } from "react-router-dom";
 import { fakeAuthProvider } from "./auth";
 
+// import ProtectedPage from "./pages/ProtectedPage";
+// import PublicPage from "./pages/PublicPage";
+// import LoginPage from "./pages/LoginPage";
+// import RequireAuth from "./pages/RequireAuth";
+// ////
+// import AuthStatus from "./utils/AuthStatus";
+// import { AuthContext } from "./utils/AuthContext";
+// import { useAuth } from "./utils/useAuth";
+// import AuthProvider from "./pages/AuthProvider";
+
 export default function App() {
   return (
     <AuthProvider>
