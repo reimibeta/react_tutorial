@@ -4,13 +4,28 @@ import { BrowserRouter } from "react-router-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import reducers from "./reducers/index.reducer";
+// import reduxThunk from "redux-thunk";
+
+// const store = createStore(
+//   reducers,
+//   {
+//       auth: { authenticated: localStorage.getItem('user') }
+//   },
+//   // applyMiddleware(reduxThunk)
+// );
+const store = createStore(reducers);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 

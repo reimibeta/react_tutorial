@@ -11,7 +11,7 @@ import {
 import { fakeAuthProvider } from "./auth";
 
 // import ProtectedPage from "./pages/ProtectedPage";
-// import PublicPage from "./pages/PublicPage";
+import PublicPage from "./pages/PublicPage";
 // import LoginPage from "./pages/LoginPage";
 // import RequireAuth from "./pages/RequireAuth";
 // ////
@@ -46,7 +46,7 @@ export default function App() {
 
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<PublicPage />} />
+          <Route path="/" element={<PublicPage who="reimi" />} />
           <Route path="/login" element={<LoginPage />} />
           <Route
             path="/protected"
@@ -195,9 +195,9 @@ function LoginPage() {
   );
 }
 
-function PublicPage() {
-  return <h3>Public</h3>;
-}
+// function PublicPage() {
+//   return <h3>Public</h3>;
+// }
 
 function ProtectedPage() {
   return <h3>Protected</h3>;

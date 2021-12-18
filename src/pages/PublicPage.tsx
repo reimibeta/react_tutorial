@@ -48,3 +48,27 @@
 //     connect(mapStateToProps, actions), //state
 //     reduxForm({ form: 'signup' })
 // )(PublicPage);
+
+import React, { Component } from "react";
+import { reduxForm, Field } from "redux-form";
+import { compose } from "redux";
+import { connect } from "react-redux";
+
+const PublicPage = (props: { who: string }) => (
+    <p>Hello, {props.who} from Public Page.</p>
+);
+
+// import React, { Component } from "react";
+
+// class PublicPage extends Component {
+
+//     render(): React.ReactNode {
+//         return <p>Hello, {props.who} from Public Page.</p>;
+//     }
+// }
+function mapStateToProps(state: any){
+    // console.log("STATE", state.auth);
+    return { errorMessage: state.auth.errorMessage };
+}
+
+export default connect(mapStateToProps, null)(PublicPage);
