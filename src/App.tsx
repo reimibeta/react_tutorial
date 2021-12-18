@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import { fakeAuthProvider } from "./auth";
 
-// import ProtectedPage from "./pages/ProtectedPage";
+import ProtectedPage from "./pages/ProtectedPage";
 import PublicPage from "./pages/PublicPage";
 // import LoginPage from "./pages/LoginPage";
 // import RequireAuth from "./pages/RequireAuth";
@@ -52,7 +52,7 @@ export default function App() {
             path="/protected"
             element={
               <RequireAuth>
-                <ProtectedPage />
+                <ProtectedPage who="reimi" />
               </RequireAuth>
             }
           />
@@ -199,6 +199,6 @@ function LoginPage() {
 //   return <h3>Public</h3>;
 // }
 
-function ProtectedPage() {
-  return <h3>Protected</h3>;
-}
+// function ProtectedPage() {
+//   return <h3>Protected</h3>;
+// }

@@ -4,6 +4,8 @@
 // import { connect } from "react-redux";
 // import * as actions from '../actions/index.action';
 
+
+
 // class PublicPage extends Component {
 
 //     onSubmit = (formProps: any) => {
@@ -49,26 +51,37 @@
 //     reduxForm({ form: 'signup' })
 // )(PublicPage);
 
-import React, { Component } from "react";
-import { reduxForm, Field } from "redux-form";
-import { compose } from "redux";
-import { connect } from "react-redux";
-
-const PublicPage = (props: { who: string }) => (
-    <p>Hello, {props.who} from Public Page.</p>
-);
-
 // import React, { Component } from "react";
+// import { reduxForm, Field } from "redux-form";
+// import { compose } from "redux";
+// import { connect } from "react-redux";
 
-// class PublicPage extends Component {
+// const PublicPage = (props: { who: string }) => (
+//     <p>Hello, {props.who} from Public Page.</p>
+// );
 
+// // import React, { Component } from "react";
+
+// // class PublicPage extends Component {
+
+// //     render(): React.ReactNode {
+// //         return <p>Hello, {props.who} from Public Page.</p>;
+// //     }
+// // }
+// function mapStateToProps(state: any){
+//     // console.log("STATE", state.auth);
+//     return { errorMessage: state.auth.errorMessage };
+// }
+
+// import React from "react";
+// export default connect(mapStateToProps, null)(PublicPage);
+// class PublicPage extends React.Component {
 //     render(): React.ReactNode {
-//         return <p>Hello, {props.who} from Public Page.</p>;
+//         // const { who } = this.props;
+//         return <p>Hello, {} from Public Page.</p>;
 //     }
 // }
-function mapStateToProps(state: any){
-    // console.log("STATE", state.auth);
-    return { errorMessage: state.auth.errorMessage };
+function PublicPage(props: { who: string }){
+    return <p>Hello, { props.who } from Public Page.</p>; 
 }
-
-export default connect(mapStateToProps, null)(PublicPage);
+export default PublicPage;

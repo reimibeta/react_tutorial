@@ -7,16 +7,16 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reducers from "./reducers/index.reducer";
-// import reduxThunk from "redux-thunk";
+import reduxThunk from "redux-thunk";
 
-// const store = createStore(
-//   reducers,
-//   {
-//       auth: { authenticated: localStorage.getItem('user') }
-//   },
-//   // applyMiddleware(reduxThunk)
-// );
-const store = createStore(reducers);
+const store = createStore(
+  reducers,
+  {
+      auth: { authenticated: localStorage.getItem('user'), errorMessage: '' }
+  },
+  applyMiddleware(reduxThunk)
+);
+// const store = createStore(reducers);
 
 ReactDOM.render(
   <Provider store={store}>
