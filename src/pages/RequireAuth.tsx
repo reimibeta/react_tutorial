@@ -2,9 +2,7 @@ import React, { FC } from "react";
 import { useLocation, Navigate } from "react-router-dom";
 import { useAuth } from "../utils/useAuth";
 
-const RequireAuth: FC = (children: React.ReactNode) => {
-  // ({ children }: { children: JSX.Element }) {
-    
+const RequireAuth = ({ children }: { children: JSX.Element }) => {
   let auth = useAuth();
   let location = useLocation();
 
@@ -18,7 +16,7 @@ const RequireAuth: FC = (children: React.ReactNode) => {
     return <Navigate to="/login" state={{ from: location }} />;
   }
 
-  return <div>{children}</div>;
+  return children;
 }
 
 export default RequireAuth;
