@@ -1,7 +1,7 @@
 import { USER } from "../actions/types.action";
 
 const INITIAL_STATE = {
-    authenticated: 'test',
+    authenticated: '',
     errorMessage: ''
 }
 

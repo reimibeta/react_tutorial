@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 // function Test(name: string):string {
 //     return "name";
@@ -6,7 +7,7 @@ import React from 'react';
 
 interface MyProps {
     readonly id: number,
-    name: string,
+    user: string, // from redux
     password?: string,
     object?: { a: string, b: string },
     // test: Test
@@ -19,6 +20,12 @@ interface MyProps {
 // const PublicPage: React.FC<MyProps> = ({name}: MyProps) => {
 // const PublicPage = (props: { who: string }) => {
 const PublicPage = (props: MyProps) => {
-    return <p>Hello, { props.name } from Public Page.</p>; 
+    return <p>Hello, { props.user } from Public Page.</p>; 
 }
-export default PublicPage;
+
+const mapStateToProps = (state: any) => {
+    return {
+        user: state.auth.authenticated
+    }
+}
+export default connect(mapStateToProps)(PublicPage);

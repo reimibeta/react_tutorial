@@ -18,7 +18,7 @@ import RequireAuth from "./pages/RequireAuth";
 import {AuthStatus} from "./utils/AuthStatus";
 import { AuthContext } from "./utils/AuthContext";
 import { useAuth } from "./utils/useAuth";
-import {AuthProvider} from "./pages/AuthProvider";
+import AuthProvider from "./pages/AuthProvider";
 
 export default function App() {
   return (
@@ -46,7 +46,7 @@ export default function App() {
 
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<PublicPage id={1} name="real" />} />
+          <Route path="/" element={<PublicPage id={1} />} />
           <Route path="/login" element={<LoginPage />} />
           <Route
             path="/protected"

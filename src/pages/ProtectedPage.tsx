@@ -2,15 +2,17 @@ import { FunctionComponent } from "react";
 import { connect } from "react-redux";
 import * as actions from '../actions/index.action';
 
-const ProtectedPage  = (props: { 
+interface MyProps {
     who: string, 
     user: any,
     setUser: any
-}) => {
+}
+
+const ProtectedPage: React.FC<MyProps>  = ({user, who}) => {
     // const { auth } = state;
-    console.log("Props", props);
+    // console.log("Props", props);
     // props.setUser("real");
-    return <h1>Protected Page {props.user} from {props.who}</h1>
+    return <h1>Protected Page {user} from {who}</h1>
 }
 
 function mapStateToProps(state: any){
