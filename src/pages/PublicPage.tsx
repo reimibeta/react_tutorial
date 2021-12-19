@@ -1,10 +1,15 @@
 import React from 'react';
 
+// function Test(name: string):string {
+//     return "name";
+// }
+
 interface MyProps {
     readonly id: number,
     name: string,
     password?: string,
-    object?: { a: string, b: string }
+    object?: { a: string, b: string },
+    // test: Test
 }
 
 // const user: UserInterface = {
