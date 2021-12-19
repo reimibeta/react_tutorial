@@ -46,7 +46,7 @@ export default function App() {
 
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<PublicPage who="reimi" />} />
+          <Route path="/" element={<PublicPage id={1} name="real" />} />
           <Route path="/login" element={<LoginPage />} />
           <Route
             path="/protected"

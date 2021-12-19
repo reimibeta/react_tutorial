@@ -4,8 +4,7 @@ interface MyProps {
     readonly id: number,
     name: string,
     password?: string,
-    who: string,
-    object: { a: string, b: string }
+    object?: { a: string, b: string }
 }
 
 // const user: UserInterface = {
@@ -15,6 +14,6 @@ interface MyProps {
 // const PublicPage: React.FC<MyProps> = ({name}: MyProps) => {
 // const PublicPage = (props: { who: string }) => {
 const PublicPage = (props: MyProps) => {
-    return <p>Hello, { props.who } from Public Page.</p>; 
+    return <p>Hello, { props.name } from Public Page.</p>; 
 }
 export default PublicPage;
